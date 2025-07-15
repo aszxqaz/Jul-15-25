@@ -3,7 +3,6 @@ package domain
 import (
 	"errors"
 	"sync"
-	"time"
 
 	"github.com/google/uuid"
 )
@@ -35,9 +34,8 @@ func (r *repository) CreateArchive() Archive {
 	defer r.mu.Unlock()
 	archiveID := uuid.NewString()
 	archive := Archive{
-		ID:        archiveID,
-		CreatedAt: time.Now(),
-		Status:    ArchiveStatusProcessing,
+		ID:     archiveID,
+		Status: ArchiveStatusProcessing,
 	}
 	r.store[archiveID] = archive
 	return archive
@@ -66,7 +64,6 @@ func (r *repository) AddLinks(archiveID string, urls []string) (Archive, bool) {
 		links[i] = File{
 			ArchiveID: archiveID,
 			Url:       url,
-			AddedAt:   time.Now(),
 		}
 	}
 

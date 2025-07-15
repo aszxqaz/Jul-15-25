@@ -8,7 +8,6 @@ import (
 	"path"
 	"slices"
 	"sync"
-	"time"
 
 	"github.com/aszxqaz/fetch-zip/internal/domain"
 	"github.com/aszxqaz/fetch-zip/internal/zipper"
@@ -85,7 +84,6 @@ func (o *operator) HandleAddLinks(archiveID string, urls []string) (domain.Archi
 						ID:        uuid.NewString(),
 						ArchiveID: archiveID,
 						Url:       url,
-						AddedAt:   time.Now(),
 					}
 					_, err := o.fetchUrl(url, true)
 					if err != nil {

@@ -1,17 +1,12 @@
 package domain
 
-import (
-	"time"
-)
-
 type File struct {
-	ID         string    `json:"id"`
-	Url        string    `json:"url"`
-	Downloaded bool      `json:"downloaded"`
-	Archived   bool      `json:"archived"`
-	Error      string    `json:"error,omitempty"`
-	AddedAt    time.Time `json:"added_at"`
-	ArchiveID  string    `json:"-"`
+	ID         string `json:"id"`
+	Url        string `json:"url"`
+	Downloaded bool   `json:"downloaded"`
+	Archived   bool   `json:"archived"`
+	Error      string `json:"error,omitempty"`
+	ArchiveID  string `json:"-"`
 }
 
 const (
@@ -20,11 +15,10 @@ const (
 )
 
 type Archive struct {
-	ID        string    `json:"id"`
-	Status    string    `json:"status"`
-	Files     []File    `json:"files,omitempty"`
-	Url       string    `json:"url,omitempty"`
-	CreatedAt time.Time `json:"created_at"`
+	ID     string `json:"id"`
+	Status string `json:"status"`
+	Files  []File `json:"files,omitempty"`
+	Url    string `json:"url,omitempty"`
 }
 
 func (a Archive) ValidFileUrlsCount() int {
