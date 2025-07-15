@@ -3,7 +3,8 @@
 ## Старт
 
 ```bash
-cd ./cmd/api
+git clone https://github.com/aszxqaz/Jul-15-25.git
+cd Jul-15-25/cmd/api
 go run main.go
 ```
 
