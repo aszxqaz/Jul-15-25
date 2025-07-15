@@ -97,7 +97,7 @@ func (o *operator) HandleAddLinks(archiveID string, urls []string) (domain.Archi
 					}
 					archive.Files = append(archive.Files, link)
 					if archive.ValidFileUrlsCount() == o.config.MaxFilesPerArchive {
-						archive.Url = path.Join(o.config.ArchivesDir, fmt.Sprintf("%s.zip", archive.ID))
+						archive.DownloadUrl = path.Join(o.config.ArchivesDir, fmt.Sprintf("%s.zip", archive.ID))
 					}
 					wg.Done()
 				}()

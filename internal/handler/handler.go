@@ -31,8 +31,8 @@ func (h *handler) HandleCreateArchive(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, NewError("Неизвестная ошибка"))
 		return
 	}
-	if archive.Url != "" {
-		archive.Url = getPublicUrl(archive.Url, c.Request)
+	if archive.DownloadUrl != "" {
+		archive.DownloadUrl = getPublicUrl(archive.DownloadUrl, c.Request)
 	}
 	c.JSON(http.StatusCreated, archive)
 }
@@ -44,8 +44,8 @@ func (h *handler) HandleGetArchive(c *gin.Context) {
 		c.JSON(http.StatusNotFound, NewError("Задача не найдена"))
 		return
 	}
-	if archive.Url != "" {
-		archive.Url = getPublicUrl(archive.Url, c.Request)
+	if archive.DownloadUrl != "" {
+		archive.DownloadUrl = getPublicUrl(archive.DownloadUrl, c.Request)
 	}
 	c.JSON(http.StatusOK, archive)
 }
@@ -72,8 +72,8 @@ func (h *handler) HandleAddFiles(c *gin.Context) {
 		return
 	}
 
-	if archive.Url != "" {
-		archive.Url = getPublicUrl(archive.Url, c.Request)
+	if archive.DownloadUrl != "" {
+		archive.DownloadUrl = getPublicUrl(archive.DownloadUrl, c.Request)
 	}
 
 	c.JSON(http.StatusCreated, archive)
