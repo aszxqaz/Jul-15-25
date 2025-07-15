@@ -111,7 +111,7 @@ func (o *operator) HandleAddLinks(archiveID string, urls []string) (domain.Archi
 
 	if err != nil {
 		if errors.Is(err, domain.ErrArchiveNotFound) {
-			msg := fmt.Sprintf("Архив с id %s не существует", archiveID)
+			msg := fmt.Sprintf("Задача с id %s не существует", archiveID)
 			return domain.Archive{}, NewError(ErrCodeArchiveNotFound, msg)
 		}
 		return domain.Archive{}, err
