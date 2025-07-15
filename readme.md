@@ -4,7 +4,7 @@
 
 ```bash
 cd ./cmd/api
-go build -o ./bin/main .
+go run main.go
 bin/main
 ```
 
