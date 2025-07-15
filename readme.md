@@ -5,7 +5,6 @@
 ```bash
 cd ./cmd/api
 go run main.go
-bin/main
 ```
 
 ## Эндпоинты
